@@ -22,7 +22,7 @@ function MovieMatches(props) {
   }
   if (props.show) {
     return (
-      <table className="overflow-scroll block col-span-2 shadow-lg border-slate-700 border-solid border rounded-lg p-2">
+      <table className="overflow-scroll block col-span-2 shadow-lg border-slate-700 border-solid border rounded-lg p-2 max-h-[44rem]">
         <thead>
 
           <tr>

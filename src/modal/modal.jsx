@@ -14,7 +14,7 @@ console.log(props)
           The assignment that broke me and was left unfinished
         </h2>
         <p>
-          <a href="https://github.com/Srafington/COMP-4513-A1" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub </a>
+          <a href="https://github.com/Srafington/COMP-4513-A1" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i> GitHub </a>
         </p>
       </div>
     </div>

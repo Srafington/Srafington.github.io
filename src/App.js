@@ -5,7 +5,6 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 //Components
 import Home from './home/home';
 import Main from './main/main';
-import Details from "./details/details";
 
 
 
@@ -14,24 +13,28 @@ function App() {
     []
   );
   useEffect(() => {
-    if (sessionStorage.getItem("movieList")) {
-      setMovieList(JSON.parse(sessionStorage.getItem("movieList")));
-    } else {
-      const getData = async () => {
-        try {
-          const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?limit=200";
-          const response = await fetch(url, { crossDomain: true });
-          const data = await response.json();
-          setMovieList(...data);
-          sessionStorage.setItem("movieList", JSON.stringify(data));
+
+    if (movieList.length < 1) {
+      if (sessionStorage.getItem("movieList")) {
+        setMovieList(JSON.parse(sessionStorage.getItem("movieList")));
+      } else {
+        const getData = async () => {
+          try {
+            console.log('hi')
+            const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php";
+            const response = await fetch(url, { crossDomain: true });
+            const data = await response.json();
+            setMovieList(...data);
+            sessionStorage.setItem("movieList", JSON.stringify(data));
+          }
+          catch (err) {
+            console.error(err);
+          }
         }
-        catch (err) {
-          console.error(err);
-        }
+        getData();
       }
-      getData();
     }
-  }, []);
+  }, [movieList]);
   return (
 
     <Routes>

@@ -103,7 +103,7 @@ function Main(props) {
       const genreMap = new Map();
       let tempGenres = [];
       props.movies.forEach(movie => {
-        movie.details.genres.forEach(genre => {
+        movie.details.genres?.forEach(genre => {
           genreMap.set(genre.id, genre.name);
         })
       });
@@ -126,7 +126,7 @@ function Main(props) {
 
 
   return (
-    <main className="container mx-auto w-full backdrop-blur-xl bg-black/50 rounded-lg text-white p-8 ">
+    <main className="container mx-auto w-full backdrop-blur-xl bg-black/50 rounded-lg text-white p-8 max-h-screen">
       <Header></Header>
       <section className="grid grid-cols-4 gap-4 m-4">
           <Details movie={DetailMovie} className="shadow-lg border-slate-700 border-solid border rounded-lg p-2 col-span-3" show={showDetail} favorites={FavoriteMovies} toggleFavorite={toggleFavorite} hideDetails={hideDetails}></Details>
