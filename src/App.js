@@ -24,8 +24,9 @@ function App() {
             const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php";
             const response = await fetch(url, { crossDomain: true });
             const data = await response.json();
-            setMovieList(...data);
+            // setMovieList(...data);
             sessionStorage.setItem("movieList", JSON.stringify(data));
+            setMovieList(JSON.parse(sessionStorage.getItem("movieList")));
           }
           catch (err) {
             console.error(err);
